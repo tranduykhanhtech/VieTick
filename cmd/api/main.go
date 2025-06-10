@@ -7,10 +7,11 @@ import (
     "vietick/config"
     "vietick/internal/models"
     "vietick/routes"
+    "github.com/gin-gonic/gin"
 )
 
 func main() {
-    gin.SetMode(gin.ReleaseMode)
+    gin.SetMode(gin.DebugMode)
     // Initialize database
     if err := config.InitDB(); err != nil {
         log.Fatalf("Failed to initialize database: %v", err)
