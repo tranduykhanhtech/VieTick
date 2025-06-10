@@ -101,9 +101,8 @@ func (s *VoteService) checkAndUpdateVerification(answerID uuid.UUID) error {
         if err := config.DB.Save(&answer).Error; err != nil {
             return err
         }
-    }
-    // Nếu số upvote giảm xuống dưới ngưỡng và câu trả lời đã được xác minh tự động
-    else if upVotes < VERIFICATION_THRESHOLD && answer.IsVerified && answer.VerifiedBy != nil && *answer.VerifiedBy == answer.UserID {
+    } else if upVotes < VERIFICATION_THRESHOLD && answer.IsVerified && answer.VerifiedBy != nil && *answer.VerifiedBy == answer.UserID {
+        // Nếu số upvote giảm xuống dưới ngưỡng và câu trả lời đã được xác minh tự động
         answer.IsVerified = false
         answer.VerifiedBy = nil
         if err := config.DB.Save(&answer).Error; err != nil {
