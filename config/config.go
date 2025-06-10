@@ -23,10 +23,12 @@ type DatabaseConfig struct {
 
 // LoadDatabaseConfig loads database configuration from environment variables
 func LoadDatabaseConfig() (*DatabaseConfig, error) {
-    // Load .env file
-    if err := godotenv.Load(); err != nil {
-        log.Printf("Error loading .env file: %v", err)
-        // Continue without .env if not found, rely on system env vars
+    // Chỉ load .env file khi môi trường là development
+    if os.Getenv("ENV") == "development" {
+        if err := godotenv.Load(); err != nil {
+            log.Printf("Error loading .env file: %v", err)
+            // Continue without .env if not found, rely on system env vars
+        }
     }
 
     config := &DatabaseConfig{

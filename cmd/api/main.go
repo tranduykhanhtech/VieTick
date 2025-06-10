@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+    gin.SetMode(gin.ReleaseMode)
     // Initialize database
     if err := config.InitDB(); err != nil {
         log.Fatalf("Failed to initialize database: %v", err)
