@@ -29,7 +29,7 @@ go run main.go
 ### Authentication
 ```bash
 # Register ✅pass
-curl -X POST http://localhost:8080/register -H "Content-Type: application/json" -d "{\"email\":\"user@example.com\",\"username\":\"username\",\"password\":\"password123\"}"
+curl -X POST https://vietick.onrender.com/register -H "Content-Type: application/json" -d "{\"email\":\"user1@example.com\",\"username\":\"username1\",\"password\":\"password123\"}"
 
 # Login ✅pass
 curl -X POST http://localhost:8080/login -H "Content-Type: application/json" -d "{\"email\":\"user@example.com\",\"password\":\"password123\"}"
@@ -66,3 +66,6 @@ vietick/
 ├── routes/        # Route definitions
 └── main.go        # Entry point
 ``` 
+```
+https://vietick.onrender.com
+```

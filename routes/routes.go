@@ -10,6 +10,9 @@ import (
 func SetupRouter() *gin.Engine {
     r := gin.Default()
 
+    // Add CORS middleware
+    r.Use(middleware.CORSMiddleware())
+
     // Initialize services
     voteService := services.NewVoteService()
 
