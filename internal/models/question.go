@@ -17,6 +17,7 @@ type Question struct {
 
     User    User     `gorm:"foreignKey:UserID;references:ID;constraint:OnDelete:CASCADE"`
     Answers []Answer `gorm:"foreignKey:QuestionID;references:ID;constraint:OnDelete:CASCADE"`
+    Tags    []Tag    `gorm:"many2many:question_tags;"`
 }
 
 func (q *Question) BeforeCreate(tx *gorm.DB) error {
